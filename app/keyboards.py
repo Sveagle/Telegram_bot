@@ -3,25 +3,30 @@ from aiogram.types import (ReplyKeyboardMarkup, KeyboardButton,
 
 from aiogram.utils.keyboard import ReplyKeyboardBuilder, InlineKeyboardBuilder
 
-main = InlineKeyboardMarkup(inline_keyboard=[
-    [InlineKeyboardButton(text='Каталог', callback_data='catalog')],
-    [InlineKeyboardButton(text='Корзина', callback_data='basket'),
-     InlineKeyboardButton(text='Контакты', callback_data='contacts')],
-],
+main_kb = ReplyKeyboardMarkup(
+    keyboard=[
+        [KeyboardButton(text="Каталог")],
+        [KeyboardButton(text="Корзина"), KeyboardButton(text="Контакты")],
+        [KeyboardButton(text="Помощь"), KeyboardButton(text="Фото")],
+        [KeyboardButton(text="Как дела?")],
+    ],
     resize_keyboard=True,
-    input_field_placeholder='Выберите пункт меню:')
+    input_field_placeholder="Выберите действие...",
+)
 
-settings = InlineKeyboardMarkup(inline_keyboard=[[
-    InlineKeyboardButton(text='Мой ТГ профиль',
-                         url='https://t.me/Knight_Of_Swords')
-]])
+back_kb = ReplyKeyboardMarkup(
+    keyboard=[
+        [KeyboardButton(text="Назад в меню")],
+    ],
+    resize_keyboard=True,
+)
 
-cars = ['Tesla', 'Mercedes', 'BMW']
+# cars = ['Tesla', 'Mercedes', 'BMW']
 
 
-async def inline_cars():
-    keyboard = InlineKeyboardBuilder()
-    for car in cars:
-        keyboard.add(InlineKeyboardButton(text=car,
-                                          callback_data=f'car_{car}'))
-    return keyboard.adjust(2).as_markup()
+# async def inline_cars():
+#     keyboard = InlineKeyboardBuilder()
+#     for car in cars:
+#         keyboard.add(InlineKeyboardButton(text=car,
+#                                           callback_data=f'car_{car}'))
+#     return keyboard.adjust(2).as_markup()
