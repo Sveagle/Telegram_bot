@@ -1,7 +1,12 @@
-from aiogram.types import (ReplyKeyboardMarkup, KeyboardButton,
-                           InlineKeyboardMarkup, InlineKeyboardButton)
+"""Модуль keyboards - содержит клавиатуры для Telegram бота.
 
-from aiogram.utils.keyboard import ReplyKeyboardBuilder, InlineKeyboardBuilder
+Предоставляет предопределенные клавиатуры:
+- Главное меню (main_kb)
+- Клавиатура возврата (back_kb)
+"""
+
+from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
+
 
 main_kb = ReplyKeyboardMarkup(
     keyboard=[
@@ -20,13 +25,3 @@ back_kb = ReplyKeyboardMarkup(
     ],
     resize_keyboard=True,
 )
-
-# cars = ['Tesla', 'Mercedes', 'BMW']
-
-
-# async def inline_cars():
-#     keyboard = InlineKeyboardBuilder()
-#     for car in cars:
-#         keyboard.add(InlineKeyboardButton(text=car,
-#                                           callback_data=f'car_{car}'))
-#     return keyboard.adjust(2).as_markup()
